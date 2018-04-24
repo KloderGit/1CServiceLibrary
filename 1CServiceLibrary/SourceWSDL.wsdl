@@ -1,0 +1,2242 @@
+﻿<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost/dposervices" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://localhost/dposervices" name="ПФ_ПорталДПО" targetNamespace="http://localhost/dposervices">
+  <types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xs1="http://localhost/dposervices" targetNamespace="http://localhost/dposervices" attributeFormDefault="unqualified" elementFormDefault="qualified">
+      <xs:complexType name="Attestation">
+        <xs:sequence>
+          <xs:element name="formControl" type="tns:formControl"/>
+          <xs:element name="SpisokVariantAttestation" type="tns:SpisokVariantAttestation"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ListOfProgramEdu">
+        <xs:sequence>
+          <xs:element name="ProgramEdu" type="tns:ProgramEdu" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProgramEdu">
+        <xs:sequence>
+          <xs:element name="XML_ID" type="xs:string"/>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="typeProgram" type="xs:string"/>
+          <xs:element name="viewProgram" type="xs:string"/>
+          <xs:element name="formEducation" type="tns:formEdu"/>
+          <xs:element name="listOfSubjects" type="tns:listOfSubjects" nillable="true"/>
+          <xs:element name="active" type="xs:string"/>
+          <xs:element name="acceptDate" type="xs:date"/>
+          <xs:element name="category" type="tns:category"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SpisokVariantAttestation">
+        <xs:sequence>
+          <xs:element name="ViewAttestation" type="tns:ViewAttestation" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ViewAttestation">
+        <xs:sequence>
+          <xs:element name="GUIDViewAttestation" type="xs:string"/>
+          <xs:element name="Name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cardList">
+        <xs:sequence>
+          <xs:element name="card" type="tns:ДанныеПоКарте" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="category">
+        <xs:sequence>
+          <xs:element name="GUID" type="xs:string"/>
+          <xs:element name="Name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="formControl">
+        <xs:sequence>
+          <xs:element name="GUIDFormControl" type="xs:string"/>
+          <xs:element name="Name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="formEdu">
+        <xs:sequence>
+          <xs:element name="GUIDFormEducation" type="xs:string"/>
+          <xs:element name="Name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listOfSubjects">
+        <xs:sequence>
+          <xs:element name="subject" type="tns:subject" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subject">
+        <xs:sequence>
+          <xs:element name="GUIDsubject" type="xs:string"/>
+          <xs:element name="subjectName" type="xs:string"/>
+          <xs:element name="Attestation" type="tns:Attestation"/>
+          <xs:element name="duration" type="xs:string"/>
+          <xs:element name="teacher" type="tns:teacher"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="teacher">
+        <xs:sequence>
+          <xs:element name="GUID" type="xs:string"/>
+          <xs:element name="Name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Аттестация">
+        <xs:sequence>
+          <xs:element name="ДатаАттестации" type="xs:date"/>
+          <xs:element name="ВидАттестации" type="tns:ВидАттестацииФЛ"/>
+          <xs:element name="ФормаАттестации" type="tns:ФормаАттестацииФЛ"/>
+          <xs:element name="Результат" type="xs:string"/>
+          <xs:element name="GUIDВедомости" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="БазовоеОбразование">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ВидАттестацииФЛ">
+        <xs:sequence>
+          <xs:element name="GUID" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ВидПрограммы">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ВыдаваемыеДокументы">
+        <xs:sequence>
+          <xs:element name="ВыдаваемыйДокумент" type="tns:ВыдаваемыйДокумент" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ВыдаваемыйДокумент">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Группа">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ГруппаПрограммыОбучения">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ГруппаФЛ">
+        <xs:sequence>
+          <xs:element name="GUID" type="xs:string"/>
+          <xs:element name="Name" type="xs:string"/>
+          <xs:element name="DataStart" type="xs:date"/>
+          <xs:element name="DataFinish" type="xs:date"/>
+          <xs:element name="SubGroup" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ДанныеОСлушателеФЛ">
+        <xs:sequence>
+          <xs:element name="GUID" type="xs:string"/>
+          <xs:element name="Status" type="xs:string"/>
+          <xs:element name="Program" type="tns:ПрограммаОбученияФЛ"/>
+          <xs:element name="Contract" type="tns:ДоговорСлушателяФЛ"/>
+          <xs:element name="Group" type="tns:ГруппаФЛ"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ДанныеПоКарте">
+        <xs:sequence>
+          <xs:element name="active" type="xs:boolean"/>
+          <xs:element name="login" type="xs:string"/>
+          <xs:element name="code" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ДанныеПоФизЛицу">
+        <xs:sequence>
+          <xs:element name="XML_ID" type="xs:string" minOccurs="0"/>
+          <xs:element name="fName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sName" type="xs:string" minOccurs="0"/>
+          <xs:element name="tName" type="xs:string" minOccurs="0"/>
+          <xs:element name="sex" type="xs:string" minOccurs="0"/>
+          <xs:element name="website" type="xs:string" minOccurs="0"/>
+          <xs:element name="photo" type="xs:string" minOccurs="0"/>
+          <xs:element name="citizenship" type="xs:string" minOccurs="0"/>
+          <xs:element name="birth" type="xs:string" minOccurs="0"/>
+          <xs:element name="phone" type="xs:string" minOccurs="0"/>
+          <xs:element name="email" type="xs:string" minOccurs="0"/>
+          <xs:element name="skype" type="xs:string" minOccurs="0"/>
+          <xs:element name="city" type="xs:string" minOccurs="0"/>
+          <xs:element name="adress" type="xs:string" minOccurs="0"/>
+          <xs:element name="post" type="xs:string" minOccurs="0"/>
+          <xs:element name="education" type="xs:string" minOccurs="0"/>
+          <xs:element name="cardListAll" type="tns:cardList"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Дисциплина">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ДисциплинаФЛ">
+        <xs:sequence>
+          <xs:element name="GUIDДисциплины" type="xs:string"/>
+          <xs:element name="Аттестация" type="tns:Аттестация"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Договор">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+          <xs:element name="Статус" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ДоговорКратко">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ДоговорПолно">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="ДатаЗаключения" type="xs:date"/>
+          <xs:element name="Номер" type="xs:string"/>
+          <xs:element name="Финансирование" type="xs:string"/>
+          <xs:element name="Сумма" type="xs:float"/>
+          <xs:element name="ДатаНачалаОбучения" type="xs:date"/>
+          <xs:element name="ДатаОкончанияОбучения" type="xs:date"/>
+          <xs:element name="ДатаЗакрытия" type="xs:date"/>
+          <xs:element name="Групповой" type="xs:boolean"/>
+          <xs:element name="Скидка" type="xs:float"/>
+          <xs:element name="СуммаСоСкидкой" type="xs:float"/>
+          <xs:element name="УчитыватьСкидку" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ДоговорСлушателяФЛ">
+        <xs:sequence>
+          <xs:element name="GUID" type="xs:string"/>
+          <xs:element name="DataOpen" type="xs:date"/>
+          <xs:element name="DataClose" type="xs:date"/>
+          <xs:element name="Price" type="xs:float"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="МассивДисциплин">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ЭлементМассиваДисциплин" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="МассивДисциплинФЛ">
+        <xs:sequence>
+          <xs:element name="Дисциплина" type="tns:ДисциплинаФЛ" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="МассивСлушателей">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ЭлементМассиваСлушателей" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="МассивСлушателейФЛ">
+        <xs:sequence>
+          <xs:element name="Слушатель" type="tns:ЭлементМассивСлушателейФЛ" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="НайденныйСлушатель">
+        <xs:sequence>
+          <xs:element name="ФИО"/>
+          <xs:element name="ПрограммаОбучения"/>
+          <xs:element name="Состояние"/>
+          <xs:element name="ДатаНачалаОбучения" type="xs:date" nillable="true"/>
+          <xs:element name="ДатаОкончанияОбучения" type="xs:date" nillable="true"/>
+          <xs:element name="НомерДиплома"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Оборудование">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ОтличникУчебы">
+        <xs:sequence>
+          <xs:element name="Значение" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Оценка">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Плательщик">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Преподаватели">
+        <xs:sequence>
+          <xs:element name="Преподаватель" type="tns:ПреподавательКратко" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Преподаватель">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+          <xs:element name="Пол" type="xs:string"/>
+          <xs:element name="ДатаРождения" type="xs:date"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ПреподавательКратко">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ПрисваиваемаяКвалификация">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Программа">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ПрограммаОбученияПолно">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+          <xs:element name="ПолноеНаименование" type="xs:string"/>
+          <xs:element name="ДатаУтверждения" type="xs:date"/>
+          <xs:element name="Статус" type="xs:string"/>
+          <xs:element name="ОписаниеПрограммы" type="xs:string"/>
+          <xs:element name="ФедеральнаяПрограмма" type="xs:boolean"/>
+          <xs:element name="ВсегоЧасов" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ПрограммаОбученияФЛ">
+        <xs:sequence>
+          <xs:element name="GUID" type="xs:string"/>
+          <xs:element name="Name" type="xs:string"/>
+          <xs:element name="formEducation" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ПрограммаСлушателяФЛ">
+        <xs:sequence>
+          <xs:element name="GUIDПрограммы" type="xs:string"/>
+          <xs:element name="МассивДисциплинФЛ" type="tns:МассивДисциплинФЛ"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Слушатель">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="ГУИДФизЛица" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+          <xs:element name="Фамилия" type="xs:string"/>
+          <xs:element name="Имя" type="xs:string"/>
+          <xs:element name="Отчество" type="xs:string"/>
+          <xs:element name="ДатаРождения" type="xs:date"/>
+          <xs:element name="Пол" type="xs:string"/>
+          <xs:element name="МестоРождения" type="xs:string"/>
+          <xs:element name="Гражданство" type="xs:string"/>
+          <xs:element name="ИностранныйГражданин" type="xs:boolean"/>
+          <xs:element name="СНИЛС" type="xs:string"/>
+          <xs:element name="ИНН" type="xs:string"/>
+          <xs:element name="СтраховаяКомпания" type="xs:string"/>
+          <xs:element name="МестоРаботы" type="xs:string"/>
+          <xs:element name="Должность" type="xs:string"/>
+          <xs:element name="Скайп" type="xs:string"/>
+          <xs:element name="Состояние" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СлушательКратко">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Специальность">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокБазовыхОбразований">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:БазовоеОбразование" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокВидовПрограмм">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ВидПрограммы" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокВыдаваемыхДокументов">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ВыдаваемыйДокумент" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокГрупп">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:Группа" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокГруппПрограммОбучения">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ГруппаПрограммыОбучения" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокДанныхПоФизЛицам">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ДанныеПоФизЛицу" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокДисциплин">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:Дисциплина" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокДоговоров">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:СтрокаСпискаДоговоров" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокКвалификаций">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ПрисваиваемаяКвалификация" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокНайденныхСлушателей">
+        <xs:sequence>
+          <xs:element name="НайденныйСлушатель" type="tns:НайденныйСлушатель" nillable="true" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокОборудования">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:Оборудование" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокОплат">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:СтрокаСпискаОплат" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокОценок">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:Оценка" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокПлательщиков">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:Плательщик" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокПреподавателей">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:Преподаватель" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокПрограммОбучения">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:СтрокаСпискаПрограммОбучения" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокСлушателей">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:СтрокаСпискаСлушателей" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокСлушателейФЛ">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ДанныеОСлушателеФЛ" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокСпециальностей">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:Специальность" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокТиповДоговоров">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ТипДоговора" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокТиповМероприятий">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ТипМероприятия" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокУровнейОбразования">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:УровеньОбразования" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокУспеваемости">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:СтрокаСпискаУспеваемости" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокФормКонтроля">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ФормаКонтроля" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СписокФормОбучения">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:ФормаОбучения" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СтрокаСпискаДоговоров">
+        <xs:sequence>
+          <xs:element name="Договор" type="tns:ДоговорПолно"/>
+          <xs:element name="Плательщик" type="tns:Плательщик"/>
+          <xs:element name="ТипДоговора" type="tns:ТипДоговора"/>
+          <xs:element name="Программа" type="tns:Программа"/>
+          <xs:element name="МассивСлушателей" type="tns:МассивСлушателей"/>
+          <xs:element name="МассивДисциплин" type="tns:МассивДисциплин"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СтрокаСпискаОплат">
+        <xs:sequence>
+          <xs:element name="ДатаОплаты" type="xs:date"/>
+          <xs:element name="Договор" type="tns:ДоговорКратко"/>
+          <xs:element name="Сумма" type="xs:float"/>
+          <xs:element name="Плательщик" type="tns:Плательщик"/>
+          <xs:element name="НомерПервичногоДокумента" type="xs:string"/>
+          <xs:element name="ДатаПервичногоДокумента" type="xs:date"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СтрокаСпискаПрограммОбучения">
+        <xs:sequence>
+          <xs:element name="ПрограммаОбучения" type="tns:ПрограммаОбученияПолно"/>
+          <xs:element name="ГруппаПрограммыОбучения" type="tns:ГруппаПрограммыОбучения"/>
+          <xs:element name="ВидПрограммы" type="tns:ВидПрограммы"/>
+          <xs:element name="ФормаОбучения" type="tns:ФормаОбучения"/>
+          <xs:element name="Специальность" type="tns:Специальность"/>
+          <xs:element name="ТипМероприятия" type="tns:ТипМероприятия"/>
+          <xs:element name="ПрисваиваемаяКвалификация" type="tns:ПрисваиваемаяКвалификация"/>
+          <xs:element name="УчебныйПлан" type="tns:УчебныйПлан" maxOccurs="unbounded"/>
+          <xs:element name="Преподаватели" type="tns:Преподаватели"/>
+          <xs:element name="ВыдаваемыеДокументы" type="tns:ВыдаваемыеДокументы"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СтрокаСпискаСлушателей">
+        <xs:sequence>
+          <xs:element name="Слушатель" type="tns:Слушатель"/>
+          <xs:element name="БазовоеОбразование" type="tns:БазовоеОбразование"/>
+          <xs:element name="УровеньОбразования" type="tns:УровеньОбразования"/>
+          <xs:element name="Договор" type="tns:Договор"/>
+          <xs:element name="Программа" type="tns:Программа"/>
+          <xs:element name="ФормаОбучения" type="tns:ФормаОбучения"/>
+          <xs:element name="Группа" type="tns:Группа"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СтрокаСпискаУспеваемости">
+        <xs:sequence>
+          <xs:element name="Слушатель" type="tns:СлушательКратко"/>
+          <xs:element name="Программа" type="tns:Программа"/>
+          <xs:element name="ФормаКонтроля" type="tns:ФормаКонтроля"/>
+          <xs:element name="Дисциплина" type="tns:Дисциплина"/>
+          <xs:element name="Оценка" type="tns:Оценка"/>
+          <xs:element name="Тема" type="tns:Тема"/>
+          <xs:element name="ОтличникУчебы" type="tns:ОтличникУчебы"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="СтрокаТЧВедомости">
+        <xs:sequence>
+          <xs:element name="ГУИДСлушателя" type="xs:string"/>
+          <xs:element name="ГУИДОценки" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ТЧВедомости">
+        <xs:sequence>
+          <xs:element name="Состав" type="tns:СтрокаТЧВедомости" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Тема">
+        <xs:sequence>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ТипДоговора">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ТипМероприятия">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="УровеньОбразования">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="УчебныйПлан">
+        <xs:sequence>
+          <xs:element name="Дисциплина" type="tns:Дисциплина"/>
+          <xs:element name="Часы" type="xs:int"/>
+          <xs:element name="СРС" type="xs:int"/>
+          <xs:element name="ФормаКонтроля" type="tns:ФормаКонтроля"/>
+          <xs:element name="ВсегоЧасов" type="xs:int"/>
+          <xs:element name="Оборудование" type="tns:Оборудование" maxOccurs="unbounded"/>
+          <xs:element name="ЗависимыеДисциплины" type="tns:Дисциплина" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ФизЛицо">
+        <xs:sequence>
+          <xs:element name="МассивСлушателейФЛ" type="tns:МассивСлушателейФЛ"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ФормаАттестацииФЛ">
+        <xs:sequence>
+          <xs:element name="GUID" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ФормаКонтроля">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ФормаОбучения">
+        <xs:sequence>
+          <xs:element name="ГУИД" type="xs:string"/>
+          <xs:element name="Наименование" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ЭлементМассивСлушателейФЛ">
+        <xs:sequence>
+          <xs:element name="GUIDСлушателя" type="xs:string"/>
+          <xs:element name="Program" type="tns:ПрограммаСлушателяФЛ"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ЭлементМассиваДисциплин">
+        <xs:sequence>
+          <xs:element name="Дисциплина" type="tns:Дисциплина"/>
+          <xs:element name="Часы" type="xs:int"/>
+          <xs:element name="ФормаКонтроля" type="tns:ФормаКонтроля"/>
+          <xs:element name="СРС" type="xs:int"/>
+          <xs:element name="ВсегоЧасов" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ЭлементМассиваСлушателей">
+        <xs:sequence>
+          <xs:element name="Слушатель" type="tns:СлушательКратко"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ПолучитьСлушателей">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="НаДату" type="xs:date" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьСлушателейResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокСлушателей" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьУспеваемость">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="НаДату" type="xs:date" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьУспеваемостьResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокУспеваемости" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДоговора">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДоговораResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокДоговоров" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьОплаты">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьОплатыResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокОплат" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="СоздатьВедомость">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ГУИДПреподавателя" type="xs:string"/>
+            <xs:element name="ГУИДПрограммыОбучения" type="xs:string"/>
+            <xs:element name="ГУИДФормыКонтроля" type="xs:string"/>
+            <xs:element name="ГУИДДисциплины" type="xs:string" nillable="true"/>
+            <xs:element name="ДатаСдачи" type="xs:date"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="СоздатьВедомостьResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ВнестиОценки">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ОценкиВедомости" type="tns:ТЧВедомости"/>
+            <xs:element name="ГУИДВедомости" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ВнестиОценкиResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ОтправитьОценкиНаПортал">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ГУИДВедомости" type="xs:string"/>
+            <xs:element name="ГУИДСлушателя" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ОтправитьОценкиНаПорталResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:ТЧВедомости" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ДобавитьСтудентаВВедомость">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ГУИДСлушателя" type="xs:string"/>
+            <xs:element name="ГУИДВедомости" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ДобавитьСтудентаВВедомостьResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьПреподавателей">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьПреподавателейResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокПреподавателей" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьФормыКонтроля">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьФормыКонтроляResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокФормКонтроля" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДисциплины">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДисциплиныResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокДисциплин" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьПрограммыОбучения">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьПрограммыОбученияResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокПрограммОбучения" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьГруппы">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьГруппыResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокГрупп" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьУровниОбразования">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьУровниОбразованияResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокУровнейОбразования" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьБазовыеОбразования">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьБазовыеОбразованияResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокБазовыхОбразований" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьОценки">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьОценкиResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокОценок" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьТипыДоговоров">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьТипыДоговоровResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокТиповДоговоров" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьПлательщиков">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьПлательщиковResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокПлательщиков" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьОборудование">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьОборудованиеResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокОборудования" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьГруппыПрограммОбучения">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьГруппыПрограммОбученияResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокГруппПрограммОбучения" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьВидыПрограмм">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьВидыПрограммResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокВидовПрограмм" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьФормыОбучения">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьФормыОбученияResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокФормОбучения" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьСпециальности">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьСпециальностиResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокСпециальностей" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьТипыМероприятий">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьТипыМероприятийResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокТиповМероприятий" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьКвалификации">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьКвалификацииResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокКвалификаций" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьВыдаваемыеДокументы">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьВыдаваемыеДокументыResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокВыдаваемыхДокументов" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьУспеваемостьСтудентов">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ГУИДСлушателя" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьУспеваемостьСтудентовResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокУспеваемости" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьСлушателейПоФИО">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ФИО" type="xs:string" nillable="true"/>
+            <xs:element name="НомерДиплома" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьСлушателейПоФИОResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокНайденныхСлушателей" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="СоздатьАттестационнуюВедомость">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GUIDTeacher" type="xs:string"/>
+            <xs:element name="GUIDProgram" type="xs:string"/>
+            <xs:element name="GUIDFormControl" type="xs:string"/>
+            <xs:element name="GUIDSubject" type="xs:string" nillable="true"/>
+            <xs:element name="GUIDGroup" type="xs:string" nillable="true"/>
+            <xs:element name="Data" type="xs:date"/>
+            <xs:element name="Number" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="СоздатьАттестационнуюВедомостьResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ДобавитьСтудентаВАттестационнуюВедомость">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GUIDAV" type="xs:string"/>
+            <xs:element name="GUIDStudent" type="xs:string"/>
+            <xs:element name="GUIDRate" type="xs:string"/>
+            <xs:element name="excellent" type="xs:boolean" nillable="true"/>
+            <xs:element name="comment" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ДобавитьСтудентаВАттестационнуюВедомостьResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="СоздатьВедомостьПосещаемости">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GUIDProgram" type="xs:string"/>
+            <xs:element name="GUIDSubject" type="xs:string" nillable="true"/>
+            <xs:element name="GUIDGroup" type="xs:string" nillable="true"/>
+            <xs:element name="GUIDSubGroup" type="xs:string" nillable="true"/>
+            <xs:element name="Data" type="xs:date"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="СоздатьВедомостьПосещаемостиResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ДобавитьСтудентаВВедомостьПосещаемости">Response
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GUIDVP" type="xs:string"/>
+            <xs:element name="GUIDStudent" type="xs:string"/>
+            <xs:element name="Visit" type="xs:boolean" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ДобавитьСтудентаВВедомостьПосещаемостиResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string" nillable="true"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДанныеОСлушателяхФЛ">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GUIDФизЛица" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДанныеОСлушателяхФЛResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокСлушателейФЛ"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДанныеПоАттестациямФЛ">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GUIDФизЛица" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДанныеПоАттестациямФЛResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:ФизЛицо"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДанныеОФЛ">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GUIDФизЛица" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДанныеОФЛResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:ДанныеПоФизЛицу"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьИзмененныеДанныеОФЛЗаПериод">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ДатаОт" type="xs:date"/>
+            <xs:element name="ДатаДо" type="xs:date"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьИзмененныеДанныеОФЛЗаПериодResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:СписокДанныхПоФизЛицам"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериод">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ДатаОт" type="xs:date"/>
+            <xs:element name="ДатаДо" type="xs:date"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериодResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:ListOfProgramEdu"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДанныеОПрограмме">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="GUIDПрограммы" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ПолучитьДанныеОПрограммеResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="tns:ProgramEdu"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="ПолучитьСлушателейRequestMessage">
+    <part name="parameters" element="tns:ПолучитьСлушателей"/>
+  </message>
+  <message name="ПолучитьСлушателейResponseMessage">
+    <part name="parameters" element="tns:ПолучитьСлушателейResponse"/>
+  </message>
+  <message name="ПолучитьУспеваемостьRequestMessage">
+    <part name="parameters" element="tns:ПолучитьУспеваемость"/>
+  </message>
+  <message name="ПолучитьУспеваемостьResponseMessage">
+    <part name="parameters" element="tns:ПолучитьУспеваемостьResponse"/>
+  </message>
+  <message name="ПолучитьДоговораRequestMessage">
+    <part name="parameters" element="tns:ПолучитьДоговора"/>
+  </message>
+  <message name="ПолучитьДоговораResponseMessage">
+    <part name="parameters" element="tns:ПолучитьДоговораResponse"/>
+  </message>
+  <message name="ПолучитьОплатыRequestMessage">
+    <part name="parameters" element="tns:ПолучитьОплаты"/>
+  </message>
+  <message name="ПолучитьОплатыResponseMessage">
+    <part name="parameters" element="tns:ПолучитьОплатыResponse"/>
+  </message>
+  <message name="СоздатьВедомостьRequestMessage">
+    <part name="parameters" element="tns:СоздатьВедомость"/>
+  </message>
+  <message name="СоздатьВедомостьResponseMessage">
+    <part name="parameters" element="tns:СоздатьВедомостьResponse"/>
+  </message>
+  <message name="ВнестиОценкиRequestMessage">
+    <part name="parameters" element="tns:ВнестиОценки"/>
+  </message>
+  <message name="ВнестиОценкиResponseMessage">
+    <part name="parameters" element="tns:ВнестиОценкиResponse"/>
+  </message>
+  <message name="ОтправитьОценкиНаПорталRequestMessage">
+    <part name="parameters" element="tns:ОтправитьОценкиНаПортал"/>
+  </message>
+  <message name="ОтправитьОценкиНаПорталResponseMessage">
+    <part name="parameters" element="tns:ОтправитьОценкиНаПорталResponse"/>
+  </message>
+  <message name="ДобавитьСтудентаВВедомостьRequestMessage">
+    <part name="parameters" element="tns:ДобавитьСтудентаВВедомость"/>
+  </message>
+  <message name="ДобавитьСтудентаВВедомостьResponseMessage">
+    <part name="parameters" element="tns:ДобавитьСтудентаВВедомостьResponse"/>
+  </message>
+  <message name="ПолучитьПреподавателейRequestMessage">
+    <part name="parameters" element="tns:ПолучитьПреподавателей"/>
+  </message>
+  <message name="ПолучитьПреподавателейResponseMessage">
+    <part name="parameters" element="tns:ПолучитьПреподавателейResponse"/>
+  </message>
+  <message name="ПолучитьФормыКонтроляRequestMessage">
+    <part name="parameters" element="tns:ПолучитьФормыКонтроля"/>
+  </message>
+  <message name="ПолучитьФормыКонтроляResponseMessage">
+    <part name="parameters" element="tns:ПолучитьФормыКонтроляResponse"/>
+  </message>
+  <message name="ПолучитьДисциплиныRequestMessage">
+    <part name="parameters" element="tns:ПолучитьДисциплины"/>
+  </message>
+  <message name="ПолучитьДисциплиныResponseMessage">
+    <part name="parameters" element="tns:ПолучитьДисциплиныResponse"/>
+  </message>
+  <message name="ПолучитьПрограммыОбученияRequestMessage">
+    <part name="parameters" element="tns:ПолучитьПрограммыОбучения"/>
+  </message>
+  <message name="ПолучитьПрограммыОбученияResponseMessage">
+    <part name="parameters" element="tns:ПолучитьПрограммыОбученияResponse"/>
+  </message>
+  <message name="ПолучитьГруппыRequestMessage">
+    <part name="parameters" element="tns:ПолучитьГруппы"/>
+  </message>
+  <message name="ПолучитьГруппыResponseMessage">
+    <part name="parameters" element="tns:ПолучитьГруппыResponse"/>
+  </message>
+  <message name="ПолучитьУровниОбразованияRequestMessage">
+    <part name="parameters" element="tns:ПолучитьУровниОбразования"/>
+  </message>
+  <message name="ПолучитьУровниОбразованияResponseMessage">
+    <part name="parameters" element="tns:ПолучитьУровниОбразованияResponse"/>
+  </message>
+  <message name="ПолучитьБазовыеОбразованияRequestMessage">
+    <part name="parameters" element="tns:ПолучитьБазовыеОбразования"/>
+  </message>
+  <message name="ПолучитьБазовыеОбразованияResponseMessage">
+    <part name="parameters" element="tns:ПолучитьБазовыеОбразованияResponse"/>
+  </message>
+  <message name="ПолучитьОценкиRequestMessage">
+    <part name="parameters" element="tns:ПолучитьОценки"/>
+  </message>
+  <message name="ПолучитьОценкиResponseMessage">
+    <part name="parameters" element="tns:ПолучитьОценкиResponse"/>
+  </message>
+  <message name="ПолучитьТипыДоговоровRequestMessage">
+    <part name="parameters" element="tns:ПолучитьТипыДоговоров"/>
+  </message>
+  <message name="ПолучитьТипыДоговоровResponseMessage">
+    <part name="parameters" element="tns:ПолучитьТипыДоговоровResponse"/>
+  </message>
+  <message name="ПолучитьПлательщиковRequestMessage">
+    <part name="parameters" element="tns:ПолучитьПлательщиков"/>
+  </message>
+  <message name="ПолучитьПлательщиковResponseMessage">
+    <part name="parameters" element="tns:ПолучитьПлательщиковResponse"/>
+  </message>
+  <message name="ПолучитьОборудованиеRequestMessage">
+    <part name="parameters" element="tns:ПолучитьОборудование"/>
+  </message>
+  <message name="ПолучитьОборудованиеResponseMessage">
+    <part name="parameters" element="tns:ПолучитьОборудованиеResponse"/>
+  </message>
+  <message name="ПолучитьГруппыПрограммОбученияRequestMessage">
+    <part name="parameters" element="tns:ПолучитьГруппыПрограммОбучения"/>
+  </message>
+  <message name="ПолучитьГруппыПрограммОбученияResponseMessage">
+    <part name="parameters" element="tns:ПолучитьГруппыПрограммОбученияResponse"/>
+  </message>
+  <message name="ПолучитьВидыПрограммRequestMessage">
+    <part name="parameters" element="tns:ПолучитьВидыПрограмм"/>
+  </message>
+  <message name="ПолучитьВидыПрограммResponseMessage">
+    <part name="parameters" element="tns:ПолучитьВидыПрограммResponse"/>
+  </message>
+  <message name="ПолучитьФормыОбученияRequestMessage">
+    <part name="parameters" element="tns:ПолучитьФормыОбучения"/>
+  </message>
+  <message name="ПолучитьФормыОбученияResponseMessage">
+    <part name="parameters" element="tns:ПолучитьФормыОбученияResponse"/>
+  </message>
+  <message name="ПолучитьСпециальностиRequestMessage">
+    <part name="parameters" element="tns:ПолучитьСпециальности"/>
+  </message>
+  <message name="ПолучитьСпециальностиResponseMessage">
+    <part name="parameters" element="tns:ПолучитьСпециальностиResponse"/>
+  </message>
+  <message name="ПолучитьТипыМероприятийRequestMessage">
+    <part name="parameters" element="tns:ПолучитьТипыМероприятий"/>
+  </message>
+  <message name="ПолучитьТипыМероприятийResponseMessage">
+    <part name="parameters" element="tns:ПолучитьТипыМероприятийResponse"/>
+  </message>
+  <message name="ПолучитьКвалификацииRequestMessage">
+    <part name="parameters" element="tns:ПолучитьКвалификации"/>
+  </message>
+  <message name="ПолучитьКвалификацииResponseMessage">
+    <part name="parameters" element="tns:ПолучитьКвалификацииResponse"/>
+  </message>
+  <message name="ПолучитьВыдаваемыеДокументыRequestMessage">
+    <part name="parameters" element="tns:ПолучитьВыдаваемыеДокументы"/>
+  </message>
+  <message name="ПолучитьВыдаваемыеДокументыResponseMessage">
+    <part name="parameters" element="tns:ПолучитьВыдаваемыеДокументыResponse"/>
+  </message>
+  <message name="ПолучитьУспеваемостьСтудентовRequestMessage">
+    <part name="parameters" element="tns:ПолучитьУспеваемостьСтудентов"/>
+  </message>
+  <message name="ПолучитьУспеваемостьСтудентовResponseMessage">
+    <part name="parameters" element="tns:ПолучитьУспеваемостьСтудентовResponse"/>
+  </message>
+  <message name="ПолучитьСлушателейПоФИОRequestMessage">
+    <part name="parameters" element="tns:ПолучитьСлушателейПоФИО"/>
+  </message>
+  <message name="ПолучитьСлушателейПоФИОResponseMessage">
+    <part name="parameters" element="tns:ПолучитьСлушателейПоФИОResponse"/>
+  </message>
+  <message name="СоздатьАттестационнуюВедомостьRequestMessage">
+    <part name="parameters" element="tns:СоздатьАттестационнуюВедомость"/>
+  </message>
+  <message name="СоздатьАттестационнуюВедомостьResponseMessage">
+    <part name="parameters" element="tns:СоздатьАттестационнуюВедомостьResponse"/>
+  </message>
+  <message name="ДобавитьСтудентаВАттестационнуюВедомостьRequestMessage">
+    <part name="parameters" element="tns:ДобавитьСтудентаВАттестационнуюВедомость"/>
+  </message>
+  <message name="ДобавитьСтудентаВАттестационнуюВедомостьResponseMessage">
+    <part name="parameters" element="tns:ДобавитьСтудентаВАттестационнуюВедомостьResponse"/>
+  </message>
+  <message name="СоздатьВедомостьПосещаемостиRequestMessage">
+    <part name="parameters" element="tns:СоздатьВедомостьПосещаемости"/>
+  </message>
+  <message name="СоздатьВедомостьПосещаемостиResponseMessage">
+    <part name="parameters" element="tns:СоздатьВедомостьПосещаемостиResponse"/>
+  </message>
+  <message name="ДобавитьСтудентаВВедомостьПосещаемостиRequestMessage">
+    <part name="parameters" element="tns:ДобавитьСтудентаВВедомостьПосещаемости"/>
+  </message>
+  <message name="ДобавитьСтудентаВВедомостьПосещаемостиResponseMessage">
+    <part name="parameters" element="tns:ДобавитьСтудентаВВедомостьПосещаемостиResponse"/>
+  </message>
+  <message name="ПолучитьДанныеОСлушателяхФЛRequestMessage">
+    <part name="parameters" element="tns:ПолучитьДанныеОСлушателяхФЛ"/>
+  </message>
+  <message name="ПолучитьДанныеОСлушателяхФЛResponseMessage">
+    <part name="parameters" element="tns:ПолучитьДанныеОСлушателяхФЛResponse"/>
+  </message>
+  <message name="ПолучитьДанныеПоАттестациямФЛRequestMessage">
+    <part name="parameters" element="tns:ПолучитьДанныеПоАттестациямФЛ"/>
+  </message>
+  <message name="ПолучитьДанныеПоАттестациямФЛResponseMessage">
+    <part name="parameters" element="tns:ПолучитьДанныеПоАттестациямФЛResponse"/>
+  </message>
+  <message name="ПолучитьДанныеОФЛRequestMessage">
+    <part name="parameters" element="tns:ПолучитьДанныеОФЛ"/>
+  </message>
+  <message name="ПолучитьДанныеОФЛResponseMessage">
+    <part name="parameters" element="tns:ПолучитьДанныеОФЛResponse"/>
+  </message>
+  <message name="ПолучитьИзмененныеДанныеОФЛЗаПериодRequestMessage">
+    <part name="parameters" element="tns:ПолучитьИзмененныеДанныеОФЛЗаПериод"/>
+  </message>
+  <message name="ПолучитьИзмененныеДанныеОФЛЗаПериодResponseMessage">
+    <part name="parameters" element="tns:ПолучитьИзмененныеДанныеОФЛЗаПериодResponse"/>
+  </message>
+  <message name="ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериодRequestMessage">
+    <part name="parameters" element="tns:ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериод"/>
+  </message>
+  <message name="ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериодResponseMessage">
+    <part name="parameters" element="tns:ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериодResponse"/>
+  </message>
+  <message name="ПолучитьДанныеОПрограммеRequestMessage">
+    <part name="parameters" element="tns:ПолучитьДанныеОПрограмме"/>
+  </message>
+  <message name="ПолучитьДанныеОПрограммеResponseMessage">
+    <part name="parameters" element="tns:ПолучитьДанныеОПрограммеResponse"/>
+  </message>
+  <portType name="ПФ_ПорталДПОPortType">
+    <operation name="ПолучитьСлушателей">
+      <input message="tns:ПолучитьСлушателейRequestMessage"/>
+      <output message="tns:ПолучитьСлушателейResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьУспеваемость">
+      <input message="tns:ПолучитьУспеваемостьRequestMessage"/>
+      <output message="tns:ПолучитьУспеваемостьResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьДоговора">
+      <input message="tns:ПолучитьДоговораRequestMessage"/>
+      <output message="tns:ПолучитьДоговораResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьОплаты">
+      <input message="tns:ПолучитьОплатыRequestMessage"/>
+      <output message="tns:ПолучитьОплатыResponseMessage"/>
+    </operation>
+    <operation name="СоздатьВедомость">
+      <input message="tns:СоздатьВедомостьRequestMessage"/>
+      <output message="tns:СоздатьВедомостьResponseMessage"/>
+    </operation>
+    <operation name="ВнестиОценки">
+      <input message="tns:ВнестиОценкиRequestMessage"/>
+      <output message="tns:ВнестиОценкиResponseMessage"/>
+    </operation>
+    <operation name="ОтправитьОценкиНаПортал">
+      <input message="tns:ОтправитьОценкиНаПорталRequestMessage"/>
+      <output message="tns:ОтправитьОценкиНаПорталResponseMessage"/>
+    </operation>
+    <operation name="ДобавитьСтудентаВВедомость">
+      <input message="tns:ДобавитьСтудентаВВедомостьRequestMessage"/>
+      <output message="tns:ДобавитьСтудентаВВедомостьResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьПреподавателей">
+      <input message="tns:ПолучитьПреподавателейRequestMessage"/>
+      <output message="tns:ПолучитьПреподавателейResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьФормыКонтроля">
+      <input message="tns:ПолучитьФормыКонтроляRequestMessage"/>
+      <output message="tns:ПолучитьФормыКонтроляResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьДисциплины">
+      <input message="tns:ПолучитьДисциплиныRequestMessage"/>
+      <output message="tns:ПолучитьДисциплиныResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьПрограммыОбучения">
+      <input message="tns:ПолучитьПрограммыОбученияRequestMessage"/>
+      <output message="tns:ПолучитьПрограммыОбученияResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьГруппы">
+      <input message="tns:ПолучитьГруппыRequestMessage"/>
+      <output message="tns:ПолучитьГруппыResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьУровниОбразования">
+      <input message="tns:ПолучитьУровниОбразованияRequestMessage"/>
+      <output message="tns:ПолучитьУровниОбразованияResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьБазовыеОбразования">
+      <input message="tns:ПолучитьБазовыеОбразованияRequestMessage"/>
+      <output message="tns:ПолучитьБазовыеОбразованияResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьОценки">
+      <input message="tns:ПолучитьОценкиRequestMessage"/>
+      <output message="tns:ПолучитьОценкиResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьТипыДоговоров">
+      <input message="tns:ПолучитьТипыДоговоровRequestMessage"/>
+      <output message="tns:ПолучитьТипыДоговоровResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьПлательщиков">
+      <input message="tns:ПолучитьПлательщиковRequestMessage"/>
+      <output message="tns:ПолучитьПлательщиковResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьОборудование">
+      <input message="tns:ПолучитьОборудованиеRequestMessage"/>
+      <output message="tns:ПолучитьОборудованиеResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьГруппыПрограммОбучения">
+      <input message="tns:ПолучитьГруппыПрограммОбученияRequestMessage"/>
+      <output message="tns:ПолучитьГруппыПрограммОбученияResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьВидыПрограмм">
+      <input message="tns:ПолучитьВидыПрограммRequestMessage"/>
+      <output message="tns:ПолучитьВидыПрограммResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьФормыОбучения">
+      <input message="tns:ПолучитьФормыОбученияRequestMessage"/>
+      <output message="tns:ПолучитьФормыОбученияResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьСпециальности">
+      <input message="tns:ПолучитьСпециальностиRequestMessage"/>
+      <output message="tns:ПолучитьСпециальностиResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьТипыМероприятий">
+      <input message="tns:ПолучитьТипыМероприятийRequestMessage"/>
+      <output message="tns:ПолучитьТипыМероприятийResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьКвалификации">
+      <input message="tns:ПолучитьКвалификацииRequestMessage"/>
+      <output message="tns:ПолучитьКвалификацииResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьВыдаваемыеДокументы">
+      <input message="tns:ПолучитьВыдаваемыеДокументыRequestMessage"/>
+      <output message="tns:ПолучитьВыдаваемыеДокументыResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьУспеваемостьСтудентов">
+      <input message="tns:ПолучитьУспеваемостьСтудентовRequestMessage"/>
+      <output message="tns:ПолучитьУспеваемостьСтудентовResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьСлушателейПоФИО">
+      <input message="tns:ПолучитьСлушателейПоФИОRequestMessage"/>
+      <output message="tns:ПолучитьСлушателейПоФИОResponseMessage"/>
+    </operation>
+    <operation name="СоздатьАттестационнуюВедомость">
+      <input message="tns:СоздатьАттестационнуюВедомостьRequestMessage"/>
+      <output message="tns:СоздатьАттестационнуюВедомостьResponseMessage"/>
+    </operation>
+    <operation name="ДобавитьСтудентаВАттестационнуюВедомость">
+      <input message="tns:ДобавитьСтудентаВАттестационнуюВедомостьRequestMessage"/>
+      <output message="tns:ДобавитьСтудентаВАттестационнуюВедомостьResponseMessage"/>
+    </operation>
+    <operation name="СоздатьВедомостьПосещаемости">
+      <input message="tns:СоздатьВедомостьПосещаемостиRequestMessage"/>
+      <output message="tns:СоздатьВедомостьПосещаемостиResponseMessage"/>
+    </operation>
+    <operation name="ДобавитьСтудентаВВедомостьПосещаемости">
+      <input message="tns:ДобавитьСтудентаВВедомостьПосещаемостиRequestMessage"/>
+      <output message="tns:ДобавитьСтудентаВВедомостьПосещаемостиResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьДанныеОСлушателяхФЛ">
+      <input message="tns:ПолучитьДанныеОСлушателяхФЛRequestMessage"/>
+      <output message="tns:ПолучитьДанныеОСлушателяхФЛResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьДанныеПоАттестациямФЛ">
+      <input message="tns:ПолучитьДанныеПоАттестациямФЛRequestMessage"/>
+      <output message="tns:ПолучитьДанныеПоАттестациямФЛResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьДанныеОФЛ">
+      <input message="tns:ПолучитьДанныеОФЛRequestMessage"/>
+      <output message="tns:ПолучитьДанныеОФЛResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьИзмененныеДанныеОФЛЗаПериод">
+      <input message="tns:ПолучитьИзмененныеДанныеОФЛЗаПериодRequestMessage"/>
+      <output message="tns:ПолучитьИзмененныеДанныеОФЛЗаПериодResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериод">
+      <input message="tns:ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериодRequestMessage"/>
+      <output message="tns:ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериодResponseMessage"/>
+    </operation>
+    <operation name="ПолучитьДанныеОПрограмме">
+      <input message="tns:ПолучитьДанныеОПрограммеRequestMessage"/>
+      <output message="tns:ПолучитьДанныеОПрограммеResponseMessage"/>
+    </operation>
+  </portType>
+  <binding name="ПФ_ПорталДПОSoapBinding" type="tns:ПФ_ПорталДПОPortType">
+    <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ПолучитьСлушателей">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьСлушателей"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьУспеваемость">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьУспеваемость"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДоговора">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДоговора"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьОплаты">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьОплаты"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="СоздатьВедомость">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:СоздатьВедомость"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ВнестиОценки">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ВнестиОценки"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ОтправитьОценкиНаПортал">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ОтправитьОценкиНаПортал"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ДобавитьСтудентаВВедомость">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ДобавитьСтудентаВВедомость"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьПреподавателей">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьПреподавателей"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьФормыКонтроля">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьФормыКонтроля"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДисциплины">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДисциплины"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьПрограммыОбучения">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьПрограммыОбучения"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьГруппы">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьГруппы"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьУровниОбразования">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьУровниОбразования"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьБазовыеОбразования">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьБазовыеОбразования"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьОценки">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьОценки"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьТипыДоговоров">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьТипыДоговоров"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьПлательщиков">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьПлательщиков"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьОборудование">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьОборудование"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьГруппыПрограммОбучения">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьГруппыПрограммОбучения"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьВидыПрограмм">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьВидыПрограмм"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьФормыОбучения">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьФормыОбучения"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьСпециальности">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьСпециальности"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьТипыМероприятий">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьТипыМероприятий"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьКвалификации">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьКвалификации"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьВыдаваемыеДокументы">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьВыдаваемыеДокументы"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьУспеваемостьСтудентов">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьУспеваемостьСтудентов"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьСлушателейПоФИО">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьСлушателейПоФИО"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="СоздатьАттестационнуюВедомость">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:СоздатьАттестационнуюВедомость"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ДобавитьСтудентаВАттестационнуюВедомость">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ДобавитьСтудентаВАттестационнуюВедомость"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="СоздатьВедомостьПосещаемости">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:СоздатьВедомостьПосещаемости"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ДобавитьСтудентаВВедомостьПосещаемости">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ДобавитьСтудентаВВедомостьПосещаемости"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДанныеОСлушателяхФЛ">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДанныеОСлушателяхФЛ"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДанныеПоАттестациямФЛ">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДанныеПоАттестациямФЛ"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДанныеОФЛ">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДанныеОФЛ"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьИзмененныеДанныеОФЛЗаПериод">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьИзмененныеДанныеОФЛЗаПериод"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериод">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериод"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДанныеОПрограмме">
+      <soapbind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДанныеОПрограмме"/>
+      <input>
+        <soapbind:body use="literal"/>
+      </input>
+      <output>
+        <soapbind:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="ПФ_ПорталДПОSoap12Binding" type="tns:ПФ_ПорталДПОPortType">
+    <soap12bind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ПолучитьСлушателей">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьСлушателей"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьУспеваемость">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьУспеваемость"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДоговора">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДоговора"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьОплаты">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьОплаты"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="СоздатьВедомость">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:СоздатьВедомость"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ВнестиОценки">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ВнестиОценки"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ОтправитьОценкиНаПортал">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ОтправитьОценкиНаПортал"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ДобавитьСтудентаВВедомость">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ДобавитьСтудентаВВедомость"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьПреподавателей">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьПреподавателей"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьФормыКонтроля">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьФормыКонтроля"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДисциплины">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДисциплины"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьПрограммыОбучения">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьПрограммыОбучения"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьГруппы">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьГруппы"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьУровниОбразования">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьУровниОбразования"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьБазовыеОбразования">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьБазовыеОбразования"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьОценки">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьОценки"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьТипыДоговоров">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьТипыДоговоров"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьПлательщиков">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьПлательщиков"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьОборудование">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьОборудование"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьГруппыПрограммОбучения">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьГруппыПрограммОбучения"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьВидыПрограмм">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьВидыПрограмм"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьФормыОбучения">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьФормыОбучения"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьСпециальности">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьСпециальности"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьТипыМероприятий">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьТипыМероприятий"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьКвалификации">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьКвалификации"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьВыдаваемыеДокументы">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьВыдаваемыеДокументы"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьУспеваемостьСтудентов">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьУспеваемостьСтудентов"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьСлушателейПоФИО">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьСлушателейПоФИО"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="СоздатьАттестационнуюВедомость">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:СоздатьАттестационнуюВедомость"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ДобавитьСтудентаВАттестационнуюВедомость">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ДобавитьСтудентаВАттестационнуюВедомость"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="СоздатьВедомостьПосещаемости">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:СоздатьВедомостьПосещаемости"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ДобавитьСтудентаВВедомостьПосещаемости">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ДобавитьСтудентаВВедомостьПосещаемости"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДанныеОСлушателяхФЛ">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДанныеОСлушателяхФЛ"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДанныеПоАттестациямФЛ">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДанныеПоАттестациямФЛ"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДанныеОФЛ">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДанныеОФЛ"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьИзмененныеДанныеОФЛЗаПериод">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьИзмененныеДанныеОФЛЗаПериод"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериод">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьИзмененныеДанныеОПрограммахДПОЗаПериод"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ПолучитьДанныеОПрограмме">
+      <soap12bind:operation style="document" soapAction="http://localhost/dposervices#ПФ_ПорталДПО:ПолучитьДанныеОПрограмме"/>
+      <input>
+        <soap12bind:body use="literal"/>
+      </input>
+      <output>
+        <soap12bind:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ПФ_ПорталДПО">
+    <port name="ПФ_ПорталДПОSoap" binding="tns:ПФ_ПорталДПОSoapBinding">
+      <documentation>
+        <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/" conformsTo="http://ws-i.org/profiles/basic/1.1"/>
+      </documentation>
+      <soapbind:address location="http://217.16.28.213/1CDB_FPA_DPO/ws/dposervices.1cws"/>
+    </port>
+    <port name="ПФ_ПорталДПОSoap12" binding="tns:ПФ_ПорталДПОSoap12Binding">
+      <soap12bind:address location="http://217.16.28.213/1CDB_FPA_DPO/ws/dposervices.1cws"/>
+    </port>
+  </service>
+</definitions>
