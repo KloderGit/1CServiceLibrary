@@ -37,17 +37,16 @@ namespace ServiceLibrary1C.Repositories
         /// <summary>
         /// Получить все программы
         /// </summary>
-        /// 
         public async Task<IEnumerable<ProgramEdu>> GetList()
         {
             var query = await GetFromServiceAsync(new DateTime(2006, 1, 1), DateTime.Today);
             return query;
         }
 
+
         /// <summary>
-        /// Получить программы за период
+        /// Получить список измененных программ за период
         /// </summary>
-        /// <returns></returns>
         public async Task<IEnumerable<ProgramEdu>> GetList(DateTime startDate, DateTime endDate)
         {
             var query = await GetFromServiceAsync(startDate, endDate);

@@ -19,7 +19,5 @@ namespace _1CServiceLibrary
 
         public ICommonRepository<ProgramEdu> Programs => ProgramRepository ?? (ProgramRepository = new ProgramRepository(service));
         public ICommonRepository<Дисциплина> Lessons => LessonRepository ?? (LessonRepository = new LessonRepository(service));
-
-
     }
 }
