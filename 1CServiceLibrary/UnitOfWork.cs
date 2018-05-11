@@ -16,8 +16,11 @@ namespace _1CServiceLibrary
 
         ICommonRepository<ProgramEdu> ProgramRepository;
         ICommonRepository<Дисциплина> LessonRepository;
+        ICommonRepository<ФормаКонтроля> AttestationRepository;
 
         public ICommonRepository<ProgramEdu> Programs => ProgramRepository ?? (ProgramRepository = new ProgramRepository(service));
         public ICommonRepository<Дисциплина> Lessons => LessonRepository ?? (LessonRepository = new LessonRepository(service));
+        public ICommonRepository<ФормаКонтроля> Attestations => AttestationRepository ?? (AttestationRepository = new AttestationRepository(service));
+
     }
 }
